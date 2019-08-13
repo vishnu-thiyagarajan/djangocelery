@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,16 +21,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fr@4ho0-al5b-=c=rw7o@5(3-*83r5fc=_&x&r91vj)ava7k7v'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fr@4ho0-al5b-=c=rw7o@5(3-*83r5fc=_&x&r91vj)ava7k7v')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["urldownload.herokuapp.com", "urldownload.com"]
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'djangosmtpemail@gmail.com'
-EMAIL_HOST_PASSWORD = 'djangosmtp'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -88,7 +89,9 @@ DATABASES = {
     }
 }
 
-
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
