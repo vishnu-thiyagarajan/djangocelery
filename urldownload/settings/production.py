@@ -34,8 +34,16 @@ EMAIL_HOST_USER = 'djangosmtpemail@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-CELERY_BROKER_URL = 'amqp://eyetwodm:ChVMhEyKNbCDSkD5BcmuM9JgBJVok7yB@termite.rmq.cloudamqp.com/eyetwodm'
+# CELERY_BROKER_URL = 'amqp://eyetwodm:ChVMhEyKNbCDSkD5BcmuM9JgBJVok7yB@termite.rmq.cloudamqp.com/eyetwodm'
+# BROKER_POOL_LIMIT = 1
+BROKER_URL = os.environ.get('CLOUDAMQP_URL')
 BROKER_POOL_LIMIT = 1
+BROKER_HEARTBEAT = None
+BROKER_CONNECTION_TIMEOUT = 30
+RESULT_BACKEND = None
+EVENT_QUEUE_EXPIRES = 60
+WORKER_PREFETCH_MULTIPLIER = 1
+WORKER_CONCURRENCY = 50
 # Application definition
 
 INSTALLED_APPS = [
