@@ -34,7 +34,8 @@ EMAIL_HOST_USER = 'djangosmtpemail@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-CELERY_BROKER_URL = 'amqp://urldownload.herokuapp.com'
+CELERY_BROKER_URL = 'amqp://eyetwodm:ChVMhEyKNbCDSkD5BcmuM9JgBJVok7yB@termite.rmq.cloudamqp.com/eyetwodm'
+BROKER_POOL_LIMIT = 1
 # Application definition
 
 INSTALLED_APPS = [
