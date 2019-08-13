@@ -25,7 +25,7 @@ SECRET_KEY = 'fr@4ho0-al5b-=c=rw7o@5(3-*83r5fc=_&x&r91vj)ava7k7v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', ]
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'djangosmtpemail@gmail.com'
