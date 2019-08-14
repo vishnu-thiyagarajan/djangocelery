@@ -36,7 +36,7 @@ EMAIL_USE_TLS = True
 
 BROKER_URL = 'amqp://jccxepey:F9kIxDojYuvGB7mIoS9A_rmAQMhswq1e@termite.rmq.cloudamqp.com/jccxepey'
 BROKER_POOL_LIMIT = 1
-imports = ('urlemail.api.tasks',)
+# imports = ('urlemail.api.tasks',)
 # BROKER_HEARTBEAT = None
 # BROKER_CONNECTION_TIMEOUT = 30
 # RESULT_BACKEND = None

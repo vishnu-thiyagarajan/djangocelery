@@ -1,3 +1,4 @@
+from __future__ import absolute_import, unicode_literals
 import requests
 import zipfile
 import smtplib
@@ -6,12 +7,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 from django.conf import settings
-# from celery import shared_task
-import celery
-app = celery.Celery('urlemail.api')
+from celery import shared_task
 
 
-@app.task
+@shared_task
 def downloadandemail(data):
     list_of_files = []
     list_of_urls = data['urls']
