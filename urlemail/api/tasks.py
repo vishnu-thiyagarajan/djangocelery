@@ -6,10 +6,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 from django.conf import settings
-from celery import shared_task
+# from celery import shared_task
+import celery
+app = celery.Celery('urlemail.api')
 
 
-@shared_task
+@app.shared_task
 def downloadandemail(data):
     list_of_files = []
     list_of_urls = data['urls']
