@@ -34,6 +34,7 @@ EMAIL_HOST_USER = 'djangosmtpemail@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+BROKER_URL = 'django://'
 # BROKER_URL = 'amqp://jccxepey:F9kIxDojYuvGB7mIoS9A_rmAQMhswq1e@termite.rmq.cloudamqp.com/jccxepey'
 BROKER_POOL_LIMIT = 1
 # imports = ('urlemail.api.tasks',)
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'urlemail',
+    'kombu.transport.django',
 ]
 
 MIDDLEWARE = [
