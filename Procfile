@@ -1,2 +1,2 @@
 web: gunicorn urldownload.wsgi
-worker: celery worker --app=tasks.app
+worker: celery worker --app=urldownload.app
